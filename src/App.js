@@ -8,7 +8,8 @@ import React, { useState, useEffect } from "react";
 import ErrorPage from './Components/ErrorPage';
 import CityDetail from './Components/CityDetail';
 import Weather from './Components/Weather';
-
+import CountryDetails from './Components/CountryDetails';
+import CountryDetail from './Components/CountryDetails';
 
 const App = () => { 
 
@@ -39,6 +40,34 @@ const App = () => {
     },
     
     ];
+
+    const country = [
+        {
+        "id": 0,
+        "name": "Tibet",
+        "description": "Top of the world",
+        "image": "http://cdn.shopify.com/s/files/1/0761/0911/products/flag2.png?v=1645197241"
+    },
+    {
+        "id": 1,
+        "name": "India",
+        "description": "Indian food",
+        "image": "https://images.news18.com/ibnlive/uploads/2021/08/national-flag-16289132954x3.jpg"
+    },
+    {
+        "id": 2,
+        "name": "France",
+        "description": "French perfumes",
+        "image": "https://cf.ltkcdn.net/french/images/orig/285049-2022x1348-french-flag-in-paris.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Switzerland",
+        "description": "Swiss chocolate",
+        "image": "https://images.unsplash.com/photo-1618493075021-1bbe5deebedf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8c3dpc3MlMjBmbGFnfGVufDB8fDB8fA%3D%3D&w=1000&q=80"
+    },]
+
+
     
     return ( <
         Router >
@@ -67,8 +96,15 @@ const App = () => {
 
         <
         Route exact path = "/country"
-        element = { < Country / > }
+        element = { < Country names={ country }/ > }
         />
+        <
+        Route exact path = "/country/:name"
+        element = { <CountryDetail names={ country } /
+            >
+        }
+        / >
+
         <Route path="*" element={<ErrorPage />} />
         
         <Route exact path="/weather" 
